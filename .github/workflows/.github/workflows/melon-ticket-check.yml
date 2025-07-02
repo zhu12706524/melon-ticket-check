@@ -1,0 +1,19 @@
+name: Melon Ticket Check
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 每 5 分钟触发一次
+  workflow_dispatch:  # 支持手动触发工作流
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets
+        uses: mooyoul/melon-ticket-actions@v1.1.0
+        with:
+          product-id: 204755          # 你的产品ID
+          schedule-id: 100001         # 你的排期ID
+          seat-id: 1_0                # 你的座位ID
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}  # 使用 GitHub Secrets 来保护 Webhook URL
+          message: '<@U12345678> 달려달려~'  # 发送到 Slack 的消息
