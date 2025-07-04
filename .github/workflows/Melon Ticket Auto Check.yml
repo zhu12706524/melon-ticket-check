@@ -1,0 +1,28 @@
+name: Melon Ticket Auto Check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 每5分钟运行一次
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  check-tickets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install axios
+
+      - name: Run ticket check script
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          COOKIE: ${{ secrets.MELON_COOKIE }}
+        run: node checkAllSeats.js
