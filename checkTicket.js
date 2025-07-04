@@ -50,7 +50,7 @@ async function checkSeat(productId, scheduleId, seatId) {
 async function checkAllSeats() {
   const productId = '211510';
   const scheduleId = '250829';
-  const seatIds = ['1_6', '1_7', '1_8']; // 这里填你要监控的多个座位ID
+  const seatIds = ['1_6']; // 这里填你要监控的多个座位ID
 
   for (const seatId of seatIds) {
     await checkSeat(productId, scheduleId, seatId);
