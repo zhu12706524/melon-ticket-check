@@ -10,10 +10,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Check Tickets
-        uses: mooyoul/melon-ticket-actions@v1.1.5
+        uses: mooyoul/melon-ticket-actions@master
         with:
           product-id: 211510          # 你的产品ID
           schedule-id: 250829      # 你的排期ID
-          seat-id: 1_0             # 你的座位ID
+          seat-id: 1_18            # 你的座位ID
           slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}  # 使用 GitHub Secrets 来保护 Webhook URL
           message: '<@sunshine> 달려달려~'  # 发送到 Slack 的消息
