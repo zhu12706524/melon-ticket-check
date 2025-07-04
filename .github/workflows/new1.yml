@@ -1,0 +1,19 @@
+name: Melon Ticket Check (Fixed)
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check-zone-6:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Tickets (1_6)
+        uses: my-username/fixed-melon-ticket-actions@main
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_6
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@sunshine> 🎫 1층 6구역 좌석 열림!'
