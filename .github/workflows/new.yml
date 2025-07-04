@@ -1,0 +1,77 @@
+name: Melon Ticket Multi-Zone Check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 每 5 分钟执行一次
+  workflow_dispatch:       # 支持手动触发
+
+jobs:
+  check-zone-6:
+    name: Check Zone 6
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets (1_6)
+        uses: mooyoul/melon-ticket-actions@master
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_6
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@sunshine> 🎫 1층 6구역 좌석이 열렸습니다!'
+
+  check-zone-7:
+    name: Check Zone 7
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets (1_7)
+        uses: mooyoul/melon-ticket-actions@master
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_7
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@sunshine> 🎫 1층 7구역 좌석이 열렸습니다!'
+
+  check-zone-8:
+    name: Check Zone 8
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets (1_8)
+        uses: mooyoul/melon-ticket-actions@master
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_8
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@sunshine> 🎫 1층 8구역 좌석이 열렸습니다!'
+
+  check-zone-9:
+    name: Check Zone 9
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets (1_9)
+        uses: mooyoul/melon-ticket-actions@master
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_9
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@sunshine> 🎫 1층 9구역 좌석이 열렸습니다!'
+
+  check-zone-10:
+    name: Check Zone 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets (1_10)
+        uses: mooyoul/melon-ticket-actions@master
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_10
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@sunshine> 🎫 1층 10구역 좌석이 열렸습니다!'
