@@ -1,0 +1,17 @@
+name: Melon Ticket Debug Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Ticket
+        uses: mooyoul/melon-ticket-actions@master
+        with:
+          product-id: 211510
+          schedule-id: 250829
+          seat-id: 1_6
+          slack-incoming-webhook-url: https://hooks.slack.com/services/FAKE/WEBHOOK/URL
+          message: '测试测试测试'
